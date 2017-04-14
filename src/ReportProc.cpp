@@ -33,10 +33,18 @@ int main() {
 
 	vector<PoliceReport*> policeReports = getPoliceReports();
 
+/*
 	random_shuffle(policeReports.begin(), policeReports.end());
 	long indicentNumbers[10];
 	for (int i = 0; i < 10; i++) {
 		indicentNumbers[i] = (*policeReports[i]).getIncidentNumber();
+	}
+*/
+	long indicentNumbers[10];
+	int length = policeReports.end() - policeReports.begin();
+	for (int i = 0; i < 10; i++) {
+		int offset = rand() % length;
+		indicentNumbers[i] = (*policeReports[offset]).getIncidentNumber();
 	}
 
 	clock_t start = clock();
